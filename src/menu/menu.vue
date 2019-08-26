@@ -67,18 +67,22 @@
             _this.defaultActive = _this.$Jump.Copy(_this.$route.path);
             // menu().then((res:any)=>{
                 _this.menuList = [
-                    // {"icon":"ios-football","name":"按钮","url":"/content/buttons","child":[]},
+                    {"icon":"ios-football","name":"文章","url":"/article/list","child":[
+                            {"icon":"","name":"文章列表","url":"/article/list"},
+                            {"icon":"","name":"文章新增","url":"/article/add"},
+                        ]},
                     // {"icon":"ios-color-filter-outline","name":"单选框","url":"/content/radios","child":[]},
-                    {"icon":"ios-cube-outline","name":"图表","url":"/content/charts",
-                        "child":[
-                            {"icon":"","name":"折线图","url":"",
-                                "child":[
-                                    {"icon":"","name":"基础折线图","url":"/charts/basics",
-                                        "child":[]},
-                                    {"icon":"","name":"曲线折线图","url":"/charts/doubleBroken",
-                                        "child":[]}]}
-                                        ]
-                    }]
+                    // {"icon":"ios-cube-outline","name":"图表","url":"/content/charts",
+                    //     "child":[
+                    //         {"icon":"","name":"折线图","url":"",
+                    //             "child":[
+                    //                 {"icon":"","name":"基础折线图","url":"/charts/basics",
+                    //                     "child":[]},
+                    //                 {"icon":"","name":"曲线折线图","url":"/charts/doubleBroken",
+                    //                     "child":[]}]}
+                    //                     ]
+                    // },
+                ]
             // })
         }
 

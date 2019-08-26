@@ -2,66 +2,13 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Layout from '@/layout/layout.vue';
 import FrameOut from './login'
-import {Route} from 'vue-router'
+import Refreshing from './refreshing'
+import ChartsList from './chartsList'
+import Article from './article'
 Vue.use(Router);
 
 const redirect = { redirect: '/content' };// 重定向
 
-const refreshing = [
-    // 刷新页面 必须保留
-    {
-        path: '/refresh',
-        name: 'refresh',
-        hidden: true,
-        component: {
-            beforeRouteEnter (to:Route, from:Route, next:Function) {
-                next((vm:any) => vm.$router.replace(from.fullPath))
-            },
-            render: (h:any) => h()
-        }
-    },
-    // 页面重定向 必须保留
-    {
-        path: '/redirect/:route*',
-        name: 'redirect',
-        hidden: true,
-        component: () => import('@/components/redirect/index.vue'),
-    }
-];
-/**
- * 折线图
- */
-const chartsList = [
-    {
-        path: '/charts',
-        name: 'charts',
-        component: Layout,
-        meta: {
-            title: 'charts',
-            name: '图表'
-        },
-        children:[
-            {
-                path     : 'basics',
-                name     : 'basics',
-                meta: {
-                    title: 'basics',
-                    name: '基础折线图',
-                },
-                component: () => import('@/views/chart/basics/index.vue'),
-            },
-            {
-                path     : 'doubleBroken',
-                name     : 'doubleBroken',
-                meta: {
-                    title: 'doubleBroken',
-                    name: '基础折线图',
-                },
-                component: () => import('@/views/chart/doubleBroken/index.vue'),
-            },
-        ]
-    }
-];
 /**
  * 主框架
  * @type {{path: string; name: string; component: Layout}[]}
@@ -112,8 +59,9 @@ export default new Router({
 
   routes: [
       ...FrameOut,
-      ...refreshing,
+      ...Refreshing,
       ...content,
-      ...chartsList,
+      ...ChartsList,
+      ...Article,
   ],
 });
