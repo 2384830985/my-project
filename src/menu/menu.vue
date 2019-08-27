@@ -25,7 +25,7 @@
     import { State, Action, Getter ,Mutation } from "vuex-class";
     import SidebarItem from './sidebar-item/index.vue';
     import { menu } from '@/api/setting/index.ts';
-    import {content} from "../router/router";
+    // import {content} from "../router/router";
 
     @Component({
         components:{
@@ -67,6 +67,7 @@
             _this.defaultActive = _this.$Jump.Copy(_this.$route.path);
             // menu().then((res:any)=>{
                 _this.menuList = [
+                    {"icon":"ios-cube-outline","name":"数据","url":"/home/homeData","child":[]},
                     {"icon":"ios-football","name":"文章","url":"/article/list","child":[
                             {"icon":"","name":"文章列表","url":"/article/list"},
                             {"icon":"","name":"文章新增","url":"/article/add"},

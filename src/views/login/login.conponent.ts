@@ -90,7 +90,7 @@ export default class Login extends Vue {
                 login(this.sizeForm).then((res:any)=>{
                     this.$Message.success('登陆成功');
                     _this.GET_TOKEN('1')
-                    _this.$router.push('content');
+                    _this.$router.push('/home/homeData');
                 })
             } else {
                 console.log('error submit!!');

@@ -9,6 +9,7 @@ import VueParticles from 'vue-particles';
 import TUI from '@/t-components/index.ts';
 import log from '@/libs/util.log';
 import Jump from '@/libs/overallSituation'
+
 export default {
     async install(Vue:any,options:Object){
         // 设置为 false 以阻止 vue 在启动时生成生产提示。https://cn.vuejs.org/v2/api/#productionTip
