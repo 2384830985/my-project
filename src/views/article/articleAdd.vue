@@ -30,7 +30,7 @@
                 </Row>
                 <FormItem label="文章类目">
                     <Select v-model="formItem.categoryId">
-                        <Option v-for="item in skillCategoryList" :value="item.id">{{item.name}}</Option>
+                        <Option v-for="(item,index) in skillCategoryList" :key="index" :value="item.id">{{item.name}}</Option>
                     </Select>
                 </FormItem>
                 <FormItem label="文章内容">

@@ -3,7 +3,7 @@ import TContent from "@/t-components/t-content/index.vue";
 import TTitle from "@/t-components/t-content-title/index.vue";
 import TContentCon from "@/t-components/t-content-con/index.vue";
 import TPage from "@/page/page.vue";
-import { manageArticleList,manageArticleDelete } from "@/api/acrticle/acrticleAxios";
+import { manageSkillCategoryList,manageSkillCategoryUpdateDelete } from "@/api/skillCategory/skillCategory";
 import Utils from "@/util/utils";
 @Component({
     components: {TContentCon, TTitle, TContent,TPage},
@@ -11,29 +11,19 @@ import Utils from "@/util/utils";
 export default class articleList extends Vue {
     public columns:Array<tableForm> = [
         {
-            title: '文章id',
+            title: '文章类目id',
             key: 'id',
         },
         {
-            title: '文章名称',
-            key: 'title',
+            title: '文章类目名称',
+            key: 'name',
         },
         {
-            title: '文章首图',
-            key: 'image'
-        },
-        {
-            title: '点赞数',
-            key: 'good'
-        },
-        {
-            title: '点击数',
-            key: 'see'
-        },
-        {
-            title: '文章分类',
-            key: 'categoryId',
-            align: 'center'
+            title: '文章状态',
+            key: 'status',
+            render: (h:Function, params:any) => {
+                return h('div',params.row.status===1?'开启':'关闭')
+            }
         },
         {
             title: '创建时间',
@@ -52,7 +42,7 @@ export default class articleList extends Vue {
         {
             title: 'Action',
             slot: 'action',
-            width: 200,
+            width: 150,
             align: 'center'
         }
     ]
@@ -71,7 +61,7 @@ export default class articleList extends Vue {
             pageSize: this.page.pageSize,
             pageNum: this.page.pageNum,
         }
-        manageArticleList(page).then((res:any)=>{
+        manageSkillCategoryList(page).then((res:any)=>{
             this.page.total = res.data.total;
             this.page.current = res.data.pageNum;
             this.page.pageSize = res.data.pageSize;
@@ -85,7 +75,7 @@ export default class articleList extends Vue {
      */
     public update(row:any){
         console.log(row)
-        this.$router.push(`/article/add?id=${row.id}`)
+        this.$router.push(`/articleCategory/add?id=${row.id}`)
     }
 
     /**
@@ -94,9 +84,8 @@ export default class articleList extends Vue {
      */
     public remove(row:any){
         console.log(row)
-        manageArticleDelete(row.id)
+        manageSkillCategoryUpdateDelete(row.id)
             .then((res:any)=>{
-                this.$Message.success('删除成功');
                 this.start();
             })
     }

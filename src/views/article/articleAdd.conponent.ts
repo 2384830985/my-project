@@ -63,6 +63,7 @@ export default class articleList extends Vue {
     submit(){
         manageArticleUpdateSave(this.formItem).then((res:any)=>{
             console.log(res)
+            this.cleans()
         })
     }
 

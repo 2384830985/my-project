@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import FrameOut from './login'
 import Refreshing from './refreshing'
 import Article from './article'
+import ArticleCategory from './articleCategory'
 import Home from './home'
 Vue.use(Router);
 
@@ -17,5 +18,6 @@ export default new Router({
       ...FrameOut,
       ...Refreshing,
       ...Article,
+      ...ArticleCategory,
   ],
 });

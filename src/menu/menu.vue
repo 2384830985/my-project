@@ -72,6 +72,10 @@
                             {"icon":"","name":"文章列表","url":"/article/list"},
                             {"icon":"","name":"文章新增","url":"/article/add"},
                         ]},
+                    {"icon":"ios-color-filter-outline","name":"文章类目","url":"/articleCategory/list","child":[
+                            {"icon":"","name":"文章类目列表","url":"/articleCategory/list"},
+                            {"icon":"","name":"文章类目新增","url":"/articleCategory/add"},
+                        ]},
                     // {"icon":"ios-color-filter-outline","name":"单选框","url":"/content/radios","child":[]},
                     // {"icon":"ios-cube-outline","name":"图表","url":"/content/charts",
                     //     "child":[

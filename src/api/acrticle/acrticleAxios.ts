@@ -13,6 +13,13 @@ export const manageArticleUpdateSave:Function = (data:Object={})=>{
         url: '/manage/article/updateSave',
         method: 'post',
         data: data,
+        success: {
+            type: 'message',
+            state: 'success',
+            options: {
+                title: '操作成功',
+            }
+        }
     })
 }
 
