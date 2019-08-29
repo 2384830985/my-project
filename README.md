@@ -1,5 +1,5 @@
 # my-project
-[项目demo](https://2384830985.github.io/iViewCounter/my-project/webApp/index.html#/)
+[项目demo](http://39.107.42.37:1234/#/login) // admin/admin
 ## Project setup
 ```
 yarn install
