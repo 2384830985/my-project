@@ -33,11 +33,9 @@
                         <Option v-for="(item,index) in skillCategoryList" :key="index" :value="item.id">{{item.name}}</Option>
                     </Select>
                 </FormItem>
-                <FormItem label="文章内容">
-                    <Input v-model="formItem.content" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
-                </FormItem>
+
                 <FormItem label="图片上传">
-                    <Upload action="/manage/product/upload" name="upload_file"
+                    <Upload :action="action" name="upload_file"
                             :max-size="1000"
                             :before-upload="handleBeforeUpload"
                             :on-remove="removeImg"
@@ -45,6 +43,9 @@
                             :on-success="onSuccessImg">
                         <Button icon="ios-cloud-upload-outline">Upload files</Button>
                     </Upload>
+                </FormItem>
+                <FormItem label="文章内容">
+                    <mavon-editor v-model="formItem.content" :toolbars="toolbars" />
                 </FormItem>
                 <FormItem>
                     <Button type="primary" @click="submit">提交</Button>
